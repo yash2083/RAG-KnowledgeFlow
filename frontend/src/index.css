@@ -1,0 +1,122 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,400&family=JetBrains+Mono:wght@400;500&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --navy-950: #060b14;
+  --navy-900: #0a1120;
+  --navy-800: #0f1c35;
+  --navy-700: #162847;
+  --teal-400: #2dd4bf;
+  --teal-300: #5eead4;
+  --amber-400: #fbbf24;
+  --coral-400: #fb7185;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html, body, #root {
+  height: 100%;
+  margin: 0;
+}
+
+body {
+  background-color: var(--navy-950);
+  color: #e2e8f0;
+  font-family: 'DM Sans', system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ── Custom scrollbar ─────────────────────────────────────────────────────── */
+::-webkit-scrollbar { width: 6px; height: 6px; }
+::-webkit-scrollbar-track { background: var(--navy-900); }
+::-webkit-scrollbar-thumb { background: #1e3a5f; border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: #284f80; }
+
+/* ── Markdown prose styles ────────────────────────────────────────────────── */
+.prose-kf {
+  color: #cbd5e1;
+  line-height: 1.75;
+}
+.prose-kf h1, .prose-kf h2, .prose-kf h3 {
+  font-family: 'DM Serif Display', serif;
+  color: #f1f5f9;
+  margin-top: 1.5em;
+  margin-bottom: 0.5em;
+}
+.prose-kf h1 { font-size: 1.5rem; }
+.prose-kf h2 { font-size: 1.25rem; }
+.prose-kf h3 { font-size: 1.1rem; }
+.prose-kf p { margin-bottom: 1em; }
+.prose-kf code {
+  font-family: 'JetBrains Mono', monospace;
+  background: rgba(45,212,191,0.08);
+  border: 1px solid rgba(45,212,191,0.15);
+  padding: 0.15em 0.4em;
+  border-radius: 4px;
+  font-size: 0.85em;
+  color: var(--teal-300);
+}
+.prose-kf pre {
+  background: #0a1120;
+  border: 1px solid #1e3a5f;
+  border-radius: 8px;
+  padding: 1rem;
+  overflow-x: auto;
+  margin: 1em 0;
+}
+.prose-kf pre code {
+  background: none;
+  border: none;
+  padding: 0;
+  color: #94a3b8;
+  font-size: 0.875rem;
+}
+.prose-kf ul, .prose-kf ol { padding-left: 1.5em; margin-bottom: 1em; }
+.prose-kf li { margin-bottom: 0.25em; }
+.prose-kf strong { color: #f1f5f9; font-weight: 600; }
+.prose-kf em { color: var(--teal-300); font-style: italic; }
+.prose-kf blockquote {
+  border-left: 3px solid var(--teal-400);
+  padding-left: 1em;
+  color: #94a3b8;
+  margin: 1em 0;
+  font-style: italic;
+}
+.prose-kf a { color: var(--teal-400); text-decoration: underline; }
+.prose-kf hr { border-color: #1e3a5f; margin: 2em 0; }
+
+/* ── Cytoscape graph canvas ───────────────────────────────────────────────── */
+.cy-container {
+  width: 100%;
+  height: 100%;
+  background: var(--navy-950);
+}
+
+/* ── Token streaming cursor ──────────────────────────────────────────────── */
+.streaming-cursor::after {
+  content: '▊';
+  color: var(--teal-400);
+  animation: blink 1s step-end infinite;
+}
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+/* ── Graph node pulse ────────────────────────────────────────────────────── */
+@keyframes node-highlight-ring {
+  0% { box-shadow: 0 0 0 0 rgba(45,212,191,0.6); }
+  70% { box-shadow: 0 0 0 8px rgba(45,212,191,0); }
+  100% { box-shadow: 0 0 0 0 rgba(45,212,191,0); }
+}
+
+/* ── Difficulty badge colors ─────────────────────────────────────────────── */
+.diff-1 { background: rgba(45,212,191,0.12); color: #5eead4; border-color: rgba(45,212,191,0.2); }
+.diff-2 { background: rgba(45,212,191,0.08); color: #99f6e4; border-color: rgba(45,212,191,0.15); }
+.diff-3 { background: rgba(251,191,36,0.1); color: #fcd34d; border-color: rgba(251,191,36,0.2); }
+.diff-4 { background: rgba(251,113,133,0.1); color: #fda4af; border-color: rgba(251,113,133,0.2); }
+.diff-5 { background: rgba(251,113,133,0.15); color: #fb7185; border-color: rgba(251,113,133,0.25); }

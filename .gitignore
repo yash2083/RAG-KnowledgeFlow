@@ -1,0 +1,49 @@
+# Environment
+.env
+.env.local
+.env.*.local
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+.venv/
+venv/
+env/
+*.egg-info/
+dist/
+build/
+.pytest_cache/
+.mypy_cache/
+*.pyc
+htmlcov/
+.coverage
+
+# Node
+node_modules/
+dist/
+.next/
+*.local
+
+# Uploads / tmp
+/tmp/knowledgeflow_uploads/
+*.pdf
+*.docx
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Docker
+.docker/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Alembic versions (commit these selectively)
+backend/alembic/versions/*.py
