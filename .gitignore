@@ -1,9 +1,12 @@
-# Environment
+# ── Secrets & Environment ─────────────────────────────────────────────────────
 .env
 .env.local
 .env.*.local
+*.pem
+*.key
+secrets/
 
-# Python
+# ── Python ────────────────────────────────────────────────────────────────────
 __pycache__/
 *.py[cod]
 *$py.class
@@ -12,38 +15,76 @@ __pycache__/
 .venv/
 venv/
 env/
+ENV/
 *.egg-info/
 dist/
 build/
 .pytest_cache/
 .mypy_cache/
+.ruff_cache/
 *.pyc
 htmlcov/
 .coverage
+.coverage.*
+coverage.xml
+*.log
 
-# Node
+# ── ML Model Cache ────────────────────────────────────────────────────────────
+# sentence-transformers downloads models here
+backend/.cache/
+~/.cache/huggingface/
+~/.cache/torch/
+
+# ── Node / Frontend ───────────────────────────────────────────────────────────
 node_modules/
-dist/
-.next/
+frontend/dist/
+frontend/.next/
 *.local
+.pnp
+.pnp.js
 
-# Uploads / tmp
+# ── Uploads & Documents ───────────────────────────────────────────────────────
 /tmp/knowledgeflow_uploads/
+uploads/
 *.pdf
 *.docx
+*.xlsx
 
-# IDE
+# ── Database Volumes ──────────────────────────────────────────────────────────
+postgres_data/
+redis_data/
+qdrant_data/
+neo4j_data/
+neo4j_logs/
+
+# ── Alembic ───────────────────────────────────────────────────────────────────
+# Commit migration files selectively
+backend/alembic/versions/*.py
+
+# ── IDE & Editor ──────────────────────────────────────────────────────────────
 .vscode/
 .idea/
 *.swp
 *.swo
+*.sublime-project
+*.sublime-workspace
+.cursor/
 
-# Docker
-.docker/
-
-# OS
+# ── OS ────────────────────────────────────────────────────────────────────────
 .DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
 Thumbs.db
+desktop.ini
 
-# Alembic versions (commit these selectively)
-backend/alembic/versions/*.py
+# ── Docker ────────────────────────────────────────────────────────────────────
+.docker/
+docker-compose.override.yml
+
+# ── Testing ───────────────────────────────────────────────────────────────────
+.tox/
+junit.xml
+test-results/
